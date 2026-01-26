@@ -1,0 +1,50 @@
+
+# Large outputs / datasets (do not commit)
+*.root
+ValidationStudies/FluxsAtm/samples_*.txt
+
+# Big binary/data outputs (do not commit)
+*.root
+*.h5
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.pt
+*.ckpt
+*.onnx
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Common analysis outputs
+**/__pycache__/
+**/.ipynb_checkpoints/
+
+# Big binary/data outputs (do not commit)
+*.root
+*.h5
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.pt
+*.ckpt
+*.onnx
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Common analysis outputs
+**/__pycache__/
+**/.ipynb_checkpoints/
+
+# Large binary/data outputs (do not commit)
+*.root
+ValidationStudies/FluxsAtm/samples_*.txt
+
+# Large binary/data outputs (do not commit)
+*.root
+ValidationStudies/FluxsAtm/samples_*.txt

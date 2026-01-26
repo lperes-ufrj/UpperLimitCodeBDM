@@ -1,0 +1,61 @@
+ =========== SYSTEMATICS AND PARAMETERS INCLUEDED ============  
+BACKGROUND_SYST_UC: 0.02
+EFF_SYST_UC: 0.25
+NA_DUNE_UC: 0.01
+N_THROWS: 1200
+N_BINS: 30
+DECIMALS_PRECISION: 2
+ =========== CENTRAL LIMIT FOR GZ'^4 AND BANDS WITH 1 AND 2 SIGMAS ============  
+======== -2 Sigma Expeceted BG ========
+1.2177177177177177e-06
+======== -2 Sigma Expeceted BG ========
+1.2252252252252253e-06
+======== -2 Sigma Expeceted BG ========
+1.2327327327327326e-06
+======== -2 Sigma Expeceted BG ========
+1.2402402402402402e-06
+======== -2 Sigma Expeceted BG ========
+1.2477477477477478e-06
+======== -2 Sigma Expeceted BG ========
+1.2552552552552552e-06
+======== -2 Sigma Expeceted BG ========
+1.2627627627627627e-06
+======== -1 Sigma Expeceted BG ========
+3.282282282282282e-06
+======== -1 Sigma Expeceted BG ========
+3.28978978978979e-06
+======== -1 Sigma Expeceted BG ========
+3.297297297297297e-06
+======== -1 Sigma Expeceted BG ========
+3.304804804804805e-06
+======== -1 Sigma Expeceted BG ========
+3.3123123123123123e-06
+======== -1 Sigma Expeceted BG ========
+3.3198198198198203e-06
+======== CENTRAL VALUE ========
+3.635135135135135e-06
+======== CENTRAL VALUE ========
+3.65015015015015e-06
+======== CENTRAL VALUE ========
+3.657657657657658e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.707207207207208e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.714714714714715e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.72972972972973e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.744744744744745e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 2468
+7.291291291291292e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 2494
+7.298798798798799e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 2514
+7.306306306306306e-06
