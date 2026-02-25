@@ -1,0 +1,67 @@
+################# SAMPLE INFO #######################
+
+MODEL: hA_ESF  CODE: 02a
+Atmos Simulated: 301000
+Atmos Reco: 220573
+Reco/Sim ratio: 0.7328006644518272
+
+Sample: m05_b1p1 (index0=0)
+Signal Sim: 99800
+Signal Reco: 14952
+Reco/Sim: 0.14981963927855713
+
+Sample: m10_b1p1 (index0=1)
+Signal Sim: 99800
+Signal Reco: 16528
+Reco/Sim: 0.16561122244488977
+
+Sample: m20_b1p1 (index0=2)
+Signal Sim: 95800
+Signal Reco: 16920
+Reco/Sim: 0.17661795407098121
+
+Sample: m40_b1p1 (index0=3)
+Signal Sim: 99800
+Signal Reco: 18004
+Reco/Sim: 0.1804008016032064
+
+Sample: m05_b1p5 (index0=4)
+Signal Sim: 99600
+Signal Reco: 72665
+Reco/Sim: 0.7295682730923695
+
+Sample: m10_b1p5 (index0=5)
+Signal Sim: 99400
+Signal Reco: 74571
+Reco/Sim: 0.7502112676056338
+
+Sample: m20_b1p5 (index0=6)
+Signal Sim: 99600
+Signal Reco: 75626
+Reco/Sim: 0.7592971887550201
+
+Sample: m40_b1p5 (index0=7)
+Signal Sim: 99800
+Signal Reco: 76075
+Reco/Sim: 0.7622745490981964
+
+Sample: m05_b10 (index0=8)
+Signal Sim: 89000
+Signal Reco: 83716
+Reco/Sim: 0.9406292134831461
+
+Sample: m10_b10 (index0=9)
+Signal Sim: 73200
+Signal Reco: 69288
+Reco/Sim: 0.9465573770491803
+
+Sample: m20_b10 (index0=10)
+Signal Sim: 93400
+Signal Reco: 88552
+Reco/Sim: 0.9480942184154175
+
+Sample: m40_b10 (index0=11)
+Signal Sim: 80600
+Signal Reco: 76584
+Reco/Sim: 0.9501736972704715
+

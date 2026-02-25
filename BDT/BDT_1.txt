@@ -2808,3 +2808,292 @@ Dataset:dataset          : Created tree 'TrainTree' with 2980000 events
 Factory                  : Thank you for using TMVA!
                          : For citation information, please visit: http://tmva.sf.net/citeTMVA.html
 TMVA training and evaluation completed successfully!
+
+
+========================================================================================================================
+
+leoperes@leopc:~/Desktop/UpperLimitCodeBDM_final/UpperLimitCodeBDM/BDT$ python3 train_BDT_test.py 
+Total Signal Events: 744114
+Total Background Events: 2275850
+DataSetInfo              : [dataset] : Added class "Signal"
+                         : Add Tree Atm of type Signal with 3019964 events
+DataSetInfo              : [dataset] : Added class "Background"
+                         : Add Tree Atm of type Background with 3019964 events
+Factory                  : Booking method: BDTAtmCCNC_202601261224
+                         : 
+                         : Rebuilding Dataset dataset
+                         : Building event vectors for type 2 Signal
+                         : Dataset[dataset] :  create input formulas for tree Atm
+                         : Building event vectors for type 2 Background
+                         : Dataset[dataset] :  create input formulas for tree Atm
+DataSetFactory           : [dataset] : Number of events in input trees
+                         : Dataset[dataset] :     Signal     requirement: "CCNC == 1"
+                         : Dataset[dataset] :     Signal          -- number of events passed: 744114  / sum of weights: 744114
+                         : Dataset[dataset] :     Signal          -- efficiency             : 0.246398
+                         : Dataset[dataset] :     Background requirement: "CCNC == 0"
+                         : Dataset[dataset] :     Background      -- number of events passed: 2275850  / sum of weights: 2.27585e+06
+                         : Dataset[dataset] :     Background      -- efficiency             : 0.753602
+                         : Dataset[dataset] :  you have opted for interpreting the requested number of training/testing events
+                         :  to be the number of events AFTER your preselection cuts
+                         : 
+                         : Dataset[dataset] :  you have opted for interpreting the requested number of training/testing events
+                         :  to be the number of events AFTER your preselection cuts
+                         : 
+                         : Dataset[dataset] : No weight renormalisation applied: use original global and event weights
+DataSetInfo              : Correlation matrix (Signal):
+                         : ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :                              PIDALongestTrack nTracks nShowers   NHits log_HighestShowerSummedADC_ LargeShowerOpenAngle LongestShower LongestTrack FracTotalChargeLongTrack
+                         :            PIDALongestTrack:           +1.000  +0.012   -0.168  -0.065                      -0.234               -0.158        -0.137       -0.012                   +0.229
+                         :                     nTracks:           +0.012  +1.000   +0.327  +0.646                      +0.213               +0.255        +0.307       +0.181                   -0.368
+                         :                    nShowers:           -0.168  +0.327   +1.000  +0.557                      +0.796               +0.736        +0.679       +0.080                   -0.504
+                         :                       NHits:           -0.065  +0.646   +0.557  +1.000                      +0.457               +0.428        +0.657       +0.221                   -0.340
+                         : log_HighestShowerSummedADC_:           -0.234  +0.213   +0.796  +0.457                      +1.000               +0.723        +0.738       +0.051                   -0.619
+                         :        LargeShowerOpenAngle:           -0.158  +0.255   +0.736  +0.428                      +0.723               +1.000        +0.500       +0.062                   -0.451
+                         :               LongestShower:           -0.137  +0.307   +0.679  +0.657                      +0.738               +0.500        +1.000       +0.068                   -0.451
+                         :                LongestTrack:           -0.012  +0.181   +0.080  +0.221                      +0.051               +0.062        +0.068       +1.000                   -0.050
+                         :    FracTotalChargeLongTrack:           +0.229  -0.368   -0.504  -0.340                      -0.619               -0.451        -0.451       -0.050                   +1.000
+                         : ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DataSetInfo              : Correlation matrix (Background):
+                         : ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :                              PIDALongestTrack nTracks nShowers   NHits log_HighestShowerSummedADC_ LargeShowerOpenAngle LongestShower LongestTrack FracTotalChargeLongTrack
+                         :            PIDALongestTrack:           +1.000  +0.117   +0.011  +0.039                      -0.005               +0.009        +0.014       -0.014                   +0.039
+                         :                     nTracks:           +0.117  +1.000   +0.220  +0.602                      -0.010               +0.175        +0.067       +0.192                   -0.228
+                         :                    nShowers:           +0.011  +0.220   +1.000  +0.500                      +0.724               +0.705        +0.591       +0.015                   -0.376
+                         :                       NHits:           +0.039  +0.602   +0.500  +1.000                      +0.339               +0.372        +0.492       +0.220                   -0.244
+                         : log_HighestShowerSummedADC_:           -0.005  -0.010   +0.724  +0.339                      +1.000               +0.608        +0.765       -0.051                   -0.501
+                         :        LargeShowerOpenAngle:           +0.009  +0.175   +0.705  +0.372                      +0.608               +1.000        +0.370       +0.014                   -0.300
+                         :               LongestShower:           +0.014  +0.067   +0.591  +0.492                      +0.765               +0.370        +1.000       -0.024                   -0.405
+                         :                LongestTrack:           -0.014  +0.192   +0.015  +0.220                      -0.051               +0.014        -0.024       +1.000                   +0.029
+                         :    FracTotalChargeLongTrack:           +0.039  -0.228   -0.376  -0.244                      -0.501               -0.300        -0.405       +0.029                   +1.000
+                         : ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DataSetFactory           : [dataset] :  
+                         : 
+Factory                  : Train all methods
+Factory                  : [dataset] : Create Transformation "I" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'PIDALongestTrack' <---> Output : variable 'PIDALongestTrack'
+                         : Input : variable 'nTracks' <---> Output : variable 'nTracks'
+                         : Input : variable 'nShowers' <---> Output : variable 'nShowers'
+                         : Input : variable 'NHits' <---> Output : variable 'NHits'
+                         : Input : variable 'log(HighestShowerSummedADC)' <---> Output : variable 'log(HighestShowerSummedADC)'
+                         : Input : variable 'LargeShowerOpenAngle' <---> Output : variable 'LargeShowerOpenAngle'
+                         : Input : variable 'LongestShower' <---> Output : variable 'LongestShower'
+                         : Input : variable 'LongestTrack' <---> Output : variable 'LongestTrack'
+                         : Input : variable 'FracTotalChargeLongTrack' <---> Output : variable 'FracTotalChargeLongTrack'
+Factory                  : [dataset] : Create Transformation "D" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'PIDALongestTrack' <---> Output : variable 'PIDALongestTrack'
+                         : Input : variable 'nTracks' <---> Output : variable 'nTracks'
+                         : Input : variable 'nShowers' <---> Output : variable 'nShowers'
+                         : Input : variable 'NHits' <---> Output : variable 'NHits'
+                         : Input : variable 'log(HighestShowerSummedADC)' <---> Output : variable 'log(HighestShowerSummedADC)'
+                         : Input : variable 'LargeShowerOpenAngle' <---> Output : variable 'LargeShowerOpenAngle'
+                         : Input : variable 'LongestShower' <---> Output : variable 'LongestShower'
+                         : Input : variable 'LongestTrack' <---> Output : variable 'LongestTrack'
+                         : Input : variable 'FracTotalChargeLongTrack' <---> Output : variable 'FracTotalChargeLongTrack'
+Factory                  : [dataset] : Create Transformation "P" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'PIDALongestTrack' <---> Output : variable 'PIDALongestTrack'
+                         : Input : variable 'nTracks' <---> Output : variable 'nTracks'
+                         : Input : variable 'nShowers' <---> Output : variable 'nShowers'
+                         : Input : variable 'NHits' <---> Output : variable 'NHits'
+                         : Input : variable 'log(HighestShowerSummedADC)' <---> Output : variable 'log(HighestShowerSummedADC)'
+                         : Input : variable 'LargeShowerOpenAngle' <---> Output : variable 'LargeShowerOpenAngle'
+                         : Input : variable 'LongestShower' <---> Output : variable 'LongestShower'
+                         : Input : variable 'LongestTrack' <---> Output : variable 'LongestTrack'
+                         : Input : variable 'FracTotalChargeLongTrack' <---> Output : variable 'FracTotalChargeLongTrack'
+Factory                  : [dataset] : Create Transformation "U" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'PIDALongestTrack' <---> Output : variable 'PIDALongestTrack'
+                         : Input : variable 'nTracks' <---> Output : variable 'nTracks'
+                         : Input : variable 'nShowers' <---> Output : variable 'nShowers'
+                         : Input : variable 'NHits' <---> Output : variable 'NHits'
+                         : Input : variable 'log(HighestShowerSummedADC)' <---> Output : variable 'log(HighestShowerSummedADC)'
+                         : Input : variable 'LargeShowerOpenAngle' <---> Output : variable 'LargeShowerOpenAngle'
+                         : Input : variable 'LongestShower' <---> Output : variable 'LongestShower'
+                         : Input : variable 'LongestTrack' <---> Output : variable 'LongestTrack'
+                         : Input : variable 'FracTotalChargeLongTrack' <---> Output : variable 'FracTotalChargeLongTrack'
+Factory                  : [dataset] : Create Transformation "G" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'PIDALongestTrack' <---> Output : variable 'PIDALongestTrack'
+                         : Input : variable 'nTracks' <---> Output : variable 'nTracks'
+                         : Input : variable 'nShowers' <---> Output : variable 'nShowers'
+                         : Input : variable 'NHits' <---> Output : variable 'NHits'
+                         : Input : variable 'log(HighestShowerSummedADC)' <---> Output : variable 'log(HighestShowerSummedADC)'
+                         : Input : variable 'LargeShowerOpenAngle' <---> Output : variable 'LargeShowerOpenAngle'
+                         : Input : variable 'LongestShower' <---> Output : variable 'LongestShower'
+                         : Input : variable 'LongestTrack' <---> Output : variable 'LongestTrack'
+                         : Input : variable 'FracTotalChargeLongTrack' <---> Output : variable 'FracTotalChargeLongTrack'
+Factory                  : [dataset] : Create Transformation "D" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'PIDALongestTrack' <---> Output : variable 'PIDALongestTrack'
+                         : Input : variable 'nTracks' <---> Output : variable 'nTracks'
+                         : Input : variable 'nShowers' <---> Output : variable 'nShowers'
+                         : Input : variable 'NHits' <---> Output : variable 'NHits'
+                         : Input : variable 'log(HighestShowerSummedADC)' <---> Output : variable 'log(HighestShowerSummedADC)'
+                         : Input : variable 'LargeShowerOpenAngle' <---> Output : variable 'LargeShowerOpenAngle'
+                         : Input : variable 'LongestShower' <---> Output : variable 'LongestShower'
+                         : Input : variable 'LongestTrack' <---> Output : variable 'LongestTrack'
+                         : Input : variable 'FracTotalChargeLongTrack' <---> Output : variable 'FracTotalChargeLongTrack'
+TFHandler_Factory        :                    Variable                           Mean                           RMS                   [        Min                           Max ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :            PIDALongestTrack:                       13.091                       13.660   [                       0.0000                       60.000 ]
+                         :                     nTracks:                       1.9856                       1.8186   [                       0.0000                       57.000 ]
+                         :                    nShowers:                      0.89704                       1.2021   [                       0.0000                       18.000 ]
+                         :                       NHits:                       1413.9                       2291.8   [                       14.000                       62110. ]
+                         : log(HighestShowerSummedADC):                       6.1688                       6.0547   [                       0.0000                       17.860 ]
+                         :        LargeShowerOpenAngle:                      0.12232                      0.18584   [                       0.0000                       1.5708 ]
+                         :               LongestShower:                       36.970                       54.003   [                       0.0000                       1394.2 ]
+                         :                LongestTrack:                       85.014                       450.90   [                   1.0000e-10                   2.2051e+05 ]
+                         :    FracTotalChargeLongTrack:                      0.21286                      0.26717   [                   1.9000e-18                       1.0000 ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         : Preparing the Decorrelation transformation...
+TFHandler_Factory        :                    Variable                           Mean                           RMS                   [        Min                           Max ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :            PIDALongestTrack:                      0.97760                       1.0000   [                     -0.44495                       13.481 ]
+                         :                     nTracks:                       1.1093                       1.0000   [                      -16.832                       25.276 ]
+                         :                    nShowers:                     -0.11579                       1.0000   [                      -12.450                       21.027 ]
+                         :                       NHits:                      0.60822                       1.0000   [                      -5.9308                       27.259 ]
+                         : log(HighestShowerSummedADC):                      0.95824                       1.0000   [                      -25.735                       14.413 ]
+                         :        LargeShowerOpenAngle:                     -0.13009                       1.0000   [                      -9.0459                       13.722 ]
+                         :               LongestShower:                      0.38978                       1.0000   [                      -17.187                       56.287 ]
+                         :                LongestTrack:                     0.081607                       1.0000   [                      -3.7888                       498.96 ]
+                         :    FracTotalChargeLongTrack:                       1.9126                       1.0000   [                      -9.6835                       10.739 ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         : Preparing the Principle Component (PCA) transformation...
+TFHandler_Factory        :                    Variable                           Mean                           RMS                   [        Min                           Max ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :            PIDALongestTrack:                   1.0170e-08                       2294.3   [                      -61155.                       1402.2 ]
+                         :                     nTracks:                   3.7504e-10                       439.17   [                  -2.1851e+05                       2071.3 ]
+                         :                    nShowers:                  -1.8476e-10                       45.558   [                      -816.14                       2929.5 ]
+                         :                       NHits:                  -1.4733e-11                       13.646   [                      -182.24                       23.773 ]
+                         : log(HighestShowerSummedADC):                   7.0216e-11                       3.9219   [                      -110.37                       45.630 ]
+                         :        LargeShowerOpenAngle:                  -4.6044e-12                       1.3681   [                      -31.405                       21.725 ]
+                         :               LongestShower:                   9.6300e-12                      0.73728   [                      -9.2103                       15.052 ]
+                         :                LongestTrack:                   1.7636e-12                      0.21097   [                      -2.5623                       2.1645 ]
+                         :    FracTotalChargeLongTrack:                  -3.0384e-13                      0.12084   [                      -1.7244                       1.1997 ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         : Preparing the Gaussian transformation...
+TFHandler_Factory        :                    Variable                           Mean                           RMS                   [        Min                           Max ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :            PIDALongestTrack:                      0.46424                      0.33161   [                   0.00060422                       1.0000 ]
+                         :                     nTracks:                      0.44184                      0.26406   [                   1.4653e-05                       1.0000 ]
+                         :                    nShowers:                      0.55983                      0.26509   [                      0.29531                       1.0000 ]
+                         :                       NHits:                      0.50028                      0.28733   [                   0.00015262                       1.0000 ]
+                         : log(HighestShowerSummedADC):                      0.26061                      0.32478   [                   0.00096063                       1.0000 ]
+                         :        LargeShowerOpenAngle:                      0.26092                      0.32452   [                    0.0016250                       1.0000 ]
+                         :               LongestShower:                      0.26105                      0.32443   [                    0.0018658                       1.0000 ]
+                         :                LongestTrack:                      0.44660                      0.30153   [                     0.054898                       1.0000 ]
+                         :    FracTotalChargeLongTrack:                      0.50083                      0.28851   [                     0.060947                      0.99434 ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         : Preparing the Gaussian transformation...
+                         : Preparing the Decorrelation transformation...
+TFHandler_Factory        :                    Variable                           Mean                           RMS                   [        Min                           Max ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :            PIDALongestTrack:                   -0.0045670                       1.0000   [                      -2.2470                       3.8212 ]
+                         :                     nTracks:                     -0.47298                       1.0000   [                      -3.3865                       4.8015 ]
+                         :                    nShowers:                       2.3961                       1.0000   [                      -2.5156                       13.740 ]
+                         :                       NHits:                      0.73805                       1.0000   [                      -4.5808                       9.8861 ]
+                         : log(HighestShowerSummedADC):                     -0.90058                       1.0000   [                      -7.9523                       10.038 ]
+                         :        LargeShowerOpenAngle:                      -1.2337                       1.0000   [                      -5.0958                       6.9802 ]
+                         :               LongestShower:                     -0.97550                       1.0000   [                      -8.3660                       11.009 ]
+                         :                LongestTrack:                     -0.45653                       1.0000   [                      -4.2886                       6.3703 ]
+                         :    FracTotalChargeLongTrack:                     -0.22617                       1.0000   [                      -3.7214                       4.4116 ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         : Ranking input variables (method unspecific)...
+IdTransformation         : Ranking result (top variable is best ranked)
+                         : ----------------------------------------------------
+                         : Rank : Variable                    : Separation
+                         : ----------------------------------------------------
+                         :    1 : NHits                       : 1.604e-01
+                         :    2 : FracTotalChargeLongTrack    : 8.192e-02
+                         :    3 : PIDALongestTrack            : 6.901e-02
+                         :    4 : log(HighestShowerSummedADC) : 4.777e-02
+                         :    5 : LongestShower               : 4.547e-02
+                         :    6 : LongestTrack                : 4.472e-02
+                         :    7 : LargeShowerOpenAngle        : 3.995e-02
+                         :    8 : nShowers                    : 3.591e-02
+                         :    9 : nTracks                     : 3.294e-02
+                         : ----------------------------------------------------
+Factory                  : Train method: BDTAtmCCNC_202601261224 for Classification
+                         : 
+BDTAtmCCNC_202601261224  : #events: (reweighted) sig: 1.49e+06 bkg: 1.49e+06
+                         : #events: (unweighted) sig: 730000 bkg: 2250000
+                         : Training 250 Decision Trees ... patience please
+                         : Elapsed time for training with 2980000 events: 367 sec         
+BDTAtmCCNC_202601261224  : [dataset] : Evaluation of BDTAtmCCNC_202601261224 on training sample (2980000 events)
+                         : Elapsed time for evaluation of 2980000 events: 31.4 sec       
+                         : Creating xml weight file: dataset/weights/TMVAClassification_BDTAtmCCNC_202601261224.weights.xml
+                         : Creating standalone class: dataset/weights/TMVAClassification_BDTAtmCCNC_202601261224.class.C
+                         : BDT_202601261224_Atm.root:/dataset/Method_BDT/BDTAtmCCNC_202601261224
+Factory                  : Training finished
+                         : 
+                         : Ranking input variables (method specific)...
+BDTAtmCCNC_202601261224  : Ranking result (top variable is best ranked)
+                         : -------------------------------------------------------------
+                         : Rank : Variable                    : Variable Importance
+                         : -------------------------------------------------------------
+                         :    1 : NHits                       : 3.054e-01
+                         :    2 : PIDALongestTrack            : 1.138e-01
+                         :    3 : LongestTrack                : 1.101e-01
+                         :    4 : log(HighestShowerSummedADC) : 9.602e-02
+                         :    5 : nTracks                     : 8.123e-02
+                         :    6 : FracTotalChargeLongTrack    : 7.884e-02
+                         :    7 : LongestShower               : 7.578e-02
+                         :    8 : nShowers                    : 7.150e-02
+                         :    9 : LargeShowerOpenAngle        : 6.725e-02
+                         : -------------------------------------------------------------
+Factory                  : === Destroy and recreate all methods via weight files for testing ===
+                         : 
+                         : Reading weight file: dataset/weights/TMVAClassification_BDTAtmCCNC_202601261224.weights.xml
+Factory                  : Test all methods
+Factory                  : Test method: BDTAtmCCNC_202601261224 for Classification performance
+                         : 
+BDTAtmCCNC_202601261224  : [dataset] : Evaluation of BDTAtmCCNC_202601261224 on testing sample (39964 events)
+                         : Elapsed time for evaluation of 39964 events: 0.918 sec       
+Factory                  : Evaluate all methods
+Factory                  : Evaluate classifier: BDTAtmCCNC_202601261224
+                         : 
+BDTAtmCCNC_202601261224  : [dataset] : Loop over test events and fill histograms with classifier response...
+                         : 
+TFHandler_BDTAtmCCNC_2...:                    Variable                           Mean                           RMS                   [        Min                           Max ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :            PIDALongestTrack:                       13.541                       13.842   [                       0.0000                       60.000 ]
+                         :                     nTracks:                       1.9372                       1.7780   [                       0.0000                       33.000 ]
+                         :                    nShowers:                      0.87581                       1.1970   [                       0.0000                       15.000 ]
+                         :                       NHits:                       1313.4                       2153.6   [                       19.000                       30969. ]
+                         : log(HighestShowerSummedADC):                       5.9502                       6.0124   [                       0.0000                       17.262 ]
+                         :        LargeShowerOpenAngle:                      0.11976                      0.18539   [                       0.0000                       1.5573 ]
+                         :               LongestShower:                       34.530                       51.911   [                       0.0000                       812.18 ]
+                         :                LongestTrack:                       79.598                       368.67   [                   1.0000e-10                       44604. ]
+                         :    FracTotalChargeLongTrack:                      0.22822                      0.27541   [                   4.5279e-18                       1.0000 ]
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------
+                         : 
+                         : Evaluation results ranked by best signal efficiency and purity (area)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : DataSet       MVA                       
+                         : Name:         Method:          ROC-integ
+                         : dataset       BDTAtmCCNC_202601261224: 0.815
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : 
+                         : Testing efficiency compared to training efficiency (overtraining check)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : DataSet              MVA              Signal efficiency: from test sample (from training sample) 
+                         : Name:                Method:          @B=0.01             @B=0.10            @B=0.30   
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : dataset              BDTAtmCCNC_202601261224: 0.255 (0.252)       0.507 (0.507)      0.751 (0.752)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : 
+Dataset:dataset          : Created tree 'TestTree' with 39964 events
+                         : 
+Dataset:dataset          : Created tree 'TrainTree' with 2980000 events
+                         : 
+Factory                  : Thank you for using TMVA!
+                         : For citation information, please visit: http://tmva.sf.net/citeTMVA.html
+TMVA training and evaluation completed successfully!
