@@ -44,7 +44,7 @@ python -m pip install numpy pandas matplotlib scikit-learn jupyter notebook upro
 
 **Data samples**
 - The samples used for development and testing are available here: https://drive.google.com/drive/folders/1FTyRupcFJqptV6i8D_OlXe7QxSHgji9K?usp=sharing
-- After downloading, place the files into the expected locations (for example `BDT/dataset/`) or update paths as described in **Reproducibility & Paths**.
+- After downloading, update paths as described in **Reproducibility & Paths**.
 
 **Key files & notebooks**
 - BDT training and utilities: [BDT/train_BDT.py](BDT/train_BDT.py), [BDT/train_BDT_final_ref.py](BDT/train_BDT_final_ref.py), notebooks in [BDT](BDT).
