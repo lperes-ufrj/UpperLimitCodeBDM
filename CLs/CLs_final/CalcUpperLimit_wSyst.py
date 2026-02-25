@@ -7,6 +7,7 @@ from scipy.stats import poisson
 from scipy.stats import norm
 from scipy.integrate import nquad 
 import configparser
+import ast
 
 import dunestyle.matplotlib as dunestyle
 
@@ -27,7 +28,14 @@ config = configparser.ConfigParser()
 # Read the INI file
 config.read('parameters.ini')
 
-BACKGROUND_SYST_UC = float(config['Uncertainties']['BACKGROUND_FLUX_UC'])
+BKG_FLUX_OVERALLSCALE_UC = np.array(
+    ast.literal_eval(config.get('Uncertainties', 'BKG_FLUX_OVERALLSCALE_UC'))
+)
+
+BKG_FLUX_SHAPE_UC = np.array(
+    ast.literal_eval(config.get('Uncertainties', 'BKG_FLUX_SHAPE_UC'))
+)
+
 EFF_SYST_UC = float(config['Uncertainties']['EFF_SIGNAL_UC'])
 NA_DUNE_UC = float(config['Uncertainties']['NUMBER_NA_UC'])
 
@@ -45,8 +53,7 @@ flux_list = [634.1, 303.6, 117.7, 36.38, 468.3, 203.4, 72.48, 19.10, 28.12, 7.52
 #argon cross section / g_Z' ^ 4
 xsec_list = [9.057 * 1e-30, 1.063 * 1e-29, 1.220 * 1e-29, 1.278 * 1e-29, 4.978 * 1e-29, 5.609 * 1e-29, 5.965 * 1e-29, 6.152 * 1e-29, 1.270 * 1e-27, 1.377 * 1e-27, 1.437 * 1e-27, 1.470 * 1e-27]
 
-path_eff = '/home/leoperes/Dropbox/BoostedDM/Final_Analysis/UpperLimitCode/Optimization/NuclearModelsOptSelectionApplication_final/'
-
+path_eff = '/home/leoperes/Desktop/UpperLimitCodeBDM_final/UpperLimitCodeBDM/Optimization/NuclearModelsOptSelectionApplication_final/generated/20260216_181339/' #Path to the folder with the optimal cuts for each nuclear model and BDM sample
 #txt files with signal strength, expected background and signal efficiency for each nuclear configuration model
 infiles = [path_eff+'hA_BR/Eff_Bkg_index_00a.txt',  path_eff+'hN_BR/Eff_Bkg_index_00b.txt',  path_eff+'hA_LFG/Eff_Bkg_index_01a.txt',  path_eff+'hN_LFG/Eff_Bkg_index_01b.txt',  path_eff+'hA_ESF/Eff_Bkg_index_02a.txt',  path_eff+'hN_ESF/Eff_Bkg_index_02b.txt']
 #Sample labels
@@ -65,31 +72,91 @@ list_samples_latex = [r'$m_\chi = 5 $ GeV, $\gamma=1.1$',
                                          r'$m_\chi = 20$ GeV, $ \gamma=10$',
                                            r'$m_\chi = 40$ GeV, $ \gamma=10$' ]  
 
-poi_m05_b1p1 = np.linspace(0.5e-6,7e-6,STEPS_PROBING_GZ4)
-poi_m10_b1p1 = np.linspace(1e-6,8.5e-6,STEPS_PROBING_GZ4)
-poi_m20_b1p1 = np.linspace(1.5e-6,1.4e-5,STEPS_PROBING_GZ4)
-poi_m40_b1p1 = np.linspace(3e-6,2.2e-5,STEPS_PROBING_GZ4)
-poi_m05_b1p5 = np.linspace(0.8e-7,9e-7,STEPS_PROBING_GZ4)
-poi_m10_b1p5 = np.linspace(1e-7,1.5e-6,STEPS_PROBING_GZ4)
-poi_m20_b1p5 = np.linspace(1e-7,2e-6,STEPS_PROBING_GZ4)
-poi_m40_b1p5 = np.linspace(5e-7,4e-6,STEPS_PROBING_GZ4)
+poi_m05_b1p1 = np.linspace(0.5e-6,4e-6,STEPS_PROBING_GZ4)
+poi_m10_b1p1 = np.linspace(0.8e-6,8e-6,STEPS_PROBING_GZ4)
+poi_m20_b1p1 = np.linspace(1e-6,0.9e-5,STEPS_PROBING_GZ4)
+poi_m40_b1p1 = np.linspace(1.5e-6,1e-5,STEPS_PROBING_GZ4)
+poi_m05_b1p5 = np.linspace(1e-7,1e-6,STEPS_PROBING_GZ4)
+poi_m10_b1p5 = np.linspace(1e-7,2e-6,STEPS_PROBING_GZ4)
+poi_m20_b1p5 = np.linspace(1e-7,3e-6,STEPS_PROBING_GZ4)
+poi_m40_b1p5 = np.linspace(5e-7,6e-6,STEPS_PROBING_GZ4)
 poi_m05_b10 = np.linspace(7e-8,5e-7,STEPS_PROBING_GZ4)
 poi_m10_b10 = np.linspace(1e-7,8.5e-7,STEPS_PROBING_GZ4)
-poi_m20_b10 = np.linspace(1e-7,2e-6,STEPS_PROBING_GZ4)
-poi_m40_b10 = np.linspace(5e-7,5e-6,STEPS_PROBING_GZ4)
+poi_m20_b10 = np.linspace(2e-7,2e-6,STEPS_PROBING_GZ4)
+poi_m40_b10 = np.linspace(0.9e-6,5e-6,STEPS_PROBING_GZ4)
 
 poi = [poi_m05_b1p1, poi_m10_b1p1, poi_m20_b1p1, poi_m40_b1p1, poi_m05_b1p5, poi_m10_b1p5, poi_m20_b1p5, poi_m40_b1p5, poi_m05_b10, poi_m10_b10, poi_m20_b10, poi_m40_b10]
 
 
 #function to read the list of txt files
-def readtxt(infile_array):
-    listloaded = [] 
+def read_eff_files(infile_array):
+    """
+    Read new Eff_Bkg_index_*.txt files with columns:
+      Mode SigStrength NegCosCut PosCosCut bestEff BkgExpect BkgError CutValue
+
+    Returns:
+      listloaded: list of arrays, one per nuclear model file
+                  each array has shape (12,2) with [:,0]=eff, [:,1]=bkg
+                  If a model is missing a sample (e.g. 01a missing i=10), inserts NaNs.
+    """
+    listloaded = []
+
     for infile in infile_array:
-        listloaded.append(np.loadtxt(infile, usecols=(3,4), skiprows=1))
+        infile = str(infile)
+
+        rows = []
+        with open(infile, "r") as f:
+            for ln in f:
+                ln = ln.strip()
+                if not ln:
+                    continue
+                if ln.lower().startswith("mode"):
+                    continue
+
+                parts = ln.split()
+                # expected: 8 columns (Mode + 7 floats)
+                if len(parts) < 8:
+                    continue
+
+                try:
+                    eff = float(parts[4])  # bestEff
+                    bkg = float(parts[5])  # BkgExpect
+                except ValueError:
+                    continue
+
+                rows.append([eff, bkg])
+
+        arr = np.asarray(rows, dtype=float)
+
+        # Handle missing sample for model code 01a (missing i=10 -> "m20_b10")
+        # Your nuclear model ordering: [00a, 00b, 01a, 01b, 02a, 02b]
+        # In your 'infiles' list, 01a is infile containing "_01a.txt"
+        if "_01a" in infile and arr.shape[0] == 11:
+            # insert NaN row at index 10
+            nan_row = np.array([[np.nan, np.nan]], dtype=float)
+            arr = np.vstack([arr[:10], nan_row, arr[10:]])
+
+        # Safety: enforce shape (12,2)
+        if arr.shape[0] != 12 or arr.shape[1] != 2:
+            raise RuntimeError(
+                f"File {infile} produced array with shape {arr.shape}, expected (12,2). "
+                "Check if the file is missing rows or has a different format."
+            )
+
+        listloaded.append(arr)
+
     return listloaded
 
-optimals = readtxt(infiles) # read values from the optimal cuts
 
+optimals = read_eff_files(infiles)# read values from the optimal cuts
+
+print(optimals)
+
+print("=== Checking mapping for nominal model (00a) ===")
+for i, lab in enumerate(labelsamples):
+    eff_i = optimals[0][i][0]
+    bkg_i = optimals[0][i][1]
+    print(i, lab, "eff=", eff_i, "bkg=", bkg_i)
 #optimals === first collumn nuclear model 
 #==== second collumn BDM sample 
 #==== third collumn firt entry overall signal efficiency second entry expected background number
@@ -97,10 +164,13 @@ optimals = readtxt(infiles) # read values from the optimal cuts
 ##print(str(path))
 for i in range(0,12): #Each BDM sample gamma and mass value 
     
+    
 
     Sensitivity_Info = open(path+'/Sensitivity_'+labelsamples[i]+'.dat', "a")
     Sensitivity_Info.write(" =========== SYSTEMATICS AND PARAMETERS INCLUEDED ============  \n")
-    Sensitivity_Info.write('BACKGROUND_SYST_UC: '+str(BACKGROUND_SYST_UC)+'\n')
+    Sensitivity_Info.write('BKG_FLUX_OVERALLSCALE_UC: '+str(BKG_FLUX_OVERALLSCALE_UC)+'\n')
+    Sensitivity_Info.write('BKG_FLUX_SHAPE_UC: '+str(BKG_FLUX_SHAPE_UC)+'\n')
+    Sensitivity_Info.write('BKG_FLUC_UC: '+str(np.sqrt(BKG_FLUX_OVERALLSCALE_UC[i]**2+BKG_FLUX_SHAPE_UC[i]**2))+'\n')
     Sensitivity_Info.write('EFF_SYST_UC: '+str(EFF_SYST_UC)+'\n')
     Sensitivity_Info.write('NA_DUNE_UC: '+str(NA_DUNE_UC)+'\n')
     Sensitivity_Info.write('N_THROWS: '+str(N_THROWS)+'\n')
@@ -129,11 +199,19 @@ for i in range(0,12): #Each BDM sample gamma and mass value
     b_cv = round(optimals[0][i][1])# number of expected Bkg -- Defaulf model hA_BR (CentralValue)
     eff_cv = optimals[0][i][0] # Signal Efficiency -- Default model hA_BR (CentralValue)
     
+    print(np.sqrt(BKG_FLUX_OVERALLSCALE_UC[i]**2+BKG_FLUX_SHAPE_UC[i]**2), b_cv)
+
+    sigma_b = np.sqrt(BKG_FLUX_OVERALLSCALE_UC[i]**2 +
+                  BKG_FLUX_SHAPE_UC[i]**2) * b_cv
    
     eff_syst = np.random.normal(eff_cv,EFF_SYST_UC*eff_cv,N_THROWS) # Throw the overall efficiency inside a systematic un.
-    B_syst = np.random.normal(b_cv,BACKGROUND_SYST_UC*b_cv,N_THROWS) # Throw the background number inside a systematic un.
     NA_dune_syst = np.random.normal(NA_dune,NA_dune*NA_DUNE_UC, N_THROWS) #Throw the number of targets (Fiducial Mass) inside a systematic un.
     
+    B_syst = np.random.normal(b_cv, sigma_b, N_THROWS)
+    B_syst = np.clip(B_syst, 0, None)
+    B_syst = (NA_dune_syst/NA_dune) * B_syst
+
+
     shifts_b_eff=[]      
     nm_shift = []
     
@@ -152,11 +230,9 @@ for i in range(0,12): #Each BDM sample gamma and mass value
     shifts_b_eff = np.array(shifts_b_eff)
 
 
-    B_syst = np.round(B_syst) # take it as integer number
-    B_syst = (NA_dune_syst/NA_dune)*B_syst
 
     eff_syst = shifts_b_eff[:,0]*eff_syst
-    B_syst = np.round(B_syst[eff_syst>0])
+    #B_syst = np.round(B_syst[eff_syst>0])
     NA_dune_syst = NA_dune_syst[eff_syst>0] # Physical cut, only positive background events.
     eff_syst = eff_syst[eff_syst>0] 
 
@@ -196,13 +272,19 @@ for i in range(0,12): #Each BDM sample gamma and mass value
             H_0 = np.concatenate((H_0,h0_i))
             h1_i = np.random.poisson(bi+S_syst[index+1],N_THROWS)
             H_1 = np.concatenate((H_1,h1_i))
-        Q_0 = poisson.pmf(H_0, s_cv+b_cv)/poisson.pmf(H_0, b_cv)
-        Q_1 = poisson.pmf(H_1, s_cv+b_cv)/poisson.pmf(H_1, b_cv)
+        #Q_0 = poisson.pmf(H_0, s_cv+b_cv)/poisson.pmf(H_0, b_cv)
+        #Q_1 = poisson.pmf(H_1, s_cv+b_cv)/poisson.pmf(H_1, b_cv)
         #print(poisson.pmf(H_1, s_cv+b_cv), poisson.pmf(H_1, b_cv),Q_1)
 
-        nllr_h0 = np.minimum(10000., np.maximum(-10000., -2*np.log(Q_0)))
-        nllr_h1 = np.minimum(10000., np.maximum(-10000., -2*np.log(Q_1)))
+        #nllr_h0 = np.minimum(10000., np.maximum(-10000., -2*np.log(Q_0)))
+        #nllr_h1 = np.minimum(10000., np.maximum(-10000., -2*np.log(Q_1)))
         
+        # likelihood ratio using logpmf (stable)
+        logQ0 = poisson.logpmf(H_0, s_cv + b_cv) - poisson.logpmf(H_0, b_cv)
+        logQ1 = poisson.logpmf(H_1, s_cv + b_cv) - poisson.logpmf(H_1, b_cv)
+
+        nllr_h0 = np.clip(-2.0 * logQ0, -10000.0, 10000.0)
+        nllr_h1 = np.clip(-2.0 * logQ1, -10000.0, 10000.0)
         
         if -10000. in nllr_h0:
             print('Check!')
@@ -231,15 +313,16 @@ for i in range(0,12): #Each BDM sample gamma and mass value
     ################################################################
 
 
-        upband_onesigma_bkg_only = np.percentile(nllr_h0,84) #CL_b = (.68/2)+.5= 0.84
-        upband_twosigma_bkg_only = np.percentile(nllr_h0,98) #CL_b = (.95/2)+.5= 0.975
-        upband_onesigma_bkg_signal = np.percentile(nllr_h1,99) #0.1 = CL_{s+b}/0.84 ==> CL_{s+b} = 0.084
-        upband_twosigma_bkg_signal = np.percentile(nllr_h1,99) #0.1 = CL_{s+b}/0.975 ==> CL_{s+b}  = 0.0975
+        upband_onesigma_bkg_only = np.percentile(nllr_h0,84.0)   # CL_b = 0.84  (-1σ)
+        upband_twosigma_bkg_only = np.percentile(nllr_h0,97.5)   # CL_b = 0.975 (-2σ)
+        upband_onesigma_bkg_signal = np.percentile(nllr_h1,98.4) # CL_{s+b} = 0.1*0.84 = 0.084 -> percentile = 1-0.084 = 0.916
+        upband_twosigma_bkg_signal = np.percentile(nllr_h1,99.75)# CL_{s+b} = 0.1*0.975 = 0.0975 -> percentile = 1-0.0975 = 0.9025
         
-        lowband_onesigma_bkg_only = np.percentile(nllr_h0,16) #CL_b = 1-((.68/2)+.5)= 1-0.84 = 0.16
-        lowband_twosigma_bkg_only = np.percentile(nllr_h0,3) #CL_b = 1-((.95/2)+.5)= 1-0.975 = 0.025
-        lowband_onesigma_bkg_signal = np.percentile(nllr_h1,98) #0.1 = CL_{s+b}/0.16 ==> CL_{s+b} = 0.016
-        lowband_twosigma_bkg_signal = np.percentile(nllr_h1,99) #0.1 = CL_{s+b}/0.025 ==> CL_{s+b}  = 0.0025
+        lowband_onesigma_bkg_only = np.percentile(nllr_h0,16.0)  # CL_b = 0.16  (+1σ)
+        lowband_twosigma_bkg_only = np.percentile(nllr_h0,2.5)   # CL_b = 0.025 (+2σ)
+        lowband_onesigma_bkg_signal = np.percentile(nllr_h1,91.6)# CL_{s+b} = 0.1*0.16 = 0.016 -> percentile = 1-0.016 = 0.984
+        lowband_twosigma_bkg_signal = np.percentile(nllr_h1,90.25)# CL_{s+b} = 0.1*0.025 = 0.0025 -> percentile = 1-0.0025 = 0.9975
+        
         
         
         plot_flag = False
