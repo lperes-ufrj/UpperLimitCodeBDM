@@ -19,7 +19,7 @@ python -m pip install numpy pandas matplotlib scikit-learn jupyter notebook upro
 	1. Find the optimal selection for the nominal nuclear model with the optimization script. Example:
 
 	```bash
-	python Optimization_DefaultNuclearModel_final/Calc_OptCut.py
+	python Optimization/Optimization_DefaultNuclearModel_final/Calc_OptCut.py
 	```
 
 	This script scans selection cuts and determines the optimal cut(s) for the nominal model; it writes the recommended cut values (or a small configuration file) that will be used in the next step.
@@ -27,7 +27,7 @@ python -m pip install numpy pandas matplotlib scikit-learn jupyter notebook upro
 	2. Apply the nominal selection to other nuclear models using the application script. Example (filename may include a suffix):
 
 	```bash
-	python NuclearModelsOptSelectionApplication_final/ApplyNominalCuts.py
+	python Optimization/NuclearModelsOptSelectionApplication_final/ApplyNominalCuts.py
 	```
 
 	This step reads the nominal cut values and applies them to the alternative nuclear-model datasets, producing selected samples or summary outputs for each model.
