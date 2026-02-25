@@ -1,6 +1,7 @@
 **UpperLimitCodeBDM**
 
 Tools and analysis scripts for Boosted Dark Matter Analysis in DUNE. The repository contains training Boosted Decision Trees (BDT), optimizing selections, validating performance, and CLs upper limits scripts. 
+
 **Repository Structure**
 - **BDT**: BDT training scripts, notebooks, ROOT macros, and datasets. See [BDT](BDT) for training and plotting utilities.
 - **CLs**: Scripts and inputs for CLs-based upper limit calculations and sensitivity plots. See [CLs](CLs).
