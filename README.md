@@ -52,13 +52,12 @@ python -m pip install numpy pandas matplotlib scikit-learn jupyter notebook upro
 
 **Legacy & Final Folders**
 - **Final / *_final**: Folders or files with `final` in their name (for example `CLs_final` or the `BDT_v2_woCVNVariable` directory) contain production-ready or preferred configurations and outputs used for the main analyses and reported results. Prefer these when reproducing the primary results.
-- **Legacy / old_***: Directories prefixed with `old_` or kept for historical reference (for example `BDT/old_BDT_v1`) are archived experiments, earlier model versions, and legacy TMVA outputs. They are useful for provenance and comparisons but are not recommended for new analyses.
+- **Legacy / old_***: Directories prefixed with `old_` or kept for historical reference (for example `BDT/old_BDT_v1`) are archived experiments, earlier model versions, and legacy TMVA outputs. 
 
 **Reproducibility & Paths**
-- Reproducing the analyses exactly may require reorganizing dataset and output paths (for example `BDT/dataset/`, `BDT/weights/`, `BDT/plots/`, and input CSVs under `CLs/`). Many scripts use relative or hard-coded locations and read paths from `CLs/parameters.ini` or BDT scripts — update those paths or move files into the expected layout before running. I can prepare a helper script or a suggested directory layout if you want.
+- Reproducing the analyses exactly may require reorganizing dataset and output paths (for example `BDT/dataset/`, `BDT/weights/`, `BDT/plots/`, and input CSVs under `CLs/`). Many scripts use relative or hard-coded locations and read paths from `CLs/parameters.ini` or BDT scripts — update those paths or move files into the expected layout before running. 
 
 **License & Contact**
 - Repository: https://github.com/lperes-ufrj/UpperLimitCodeBDM
 - Open issues or contact the repository owner for questions.
--
 
