@@ -22,12 +22,12 @@ python -m pip install numpy pandas matplotlib scikit-learn jupyter notebook upro
 	python Optimization/Optimization_DefaultNuclearModel_final/Calc_OptCut.py
 	```
 
-	This script scans selection cuts and determines the optimal cut(s) for the nominal model; it writes the recommended cut values (or a small configuration file) that will be used in the next step.
+	This script scans selection cuts and determines the optimal cut(s) for the nominal model; it writes the recommended cut values (Eff_Bkg_index_00a.txt) that will be used in the next step.
 
-	2. Apply the nominal selection to other nuclear models using the application script. Example (filename may include a suffix):
+	2. Apply the nominal selection to other nuclear models using the application script. Example:
 
 	```bash
-	python Optimization/NuclearModelsOptSelectionApplication_final/ApplyNominalCuts.py
+	python Optimization/NuclearModelsOptSelectionApplication_final/ApplyNominalCuts_ToOtherNuclearModels.py
 	```
 
 	This step reads the nominal cut values and applies them to the alternative nuclear-model datasets, producing selected samples or summary outputs for each model.
@@ -35,7 +35,7 @@ python -m pip install numpy pandas matplotlib scikit-learn jupyter notebook upro
 	3. Calculate the sensitivity / CLs upper limits using the prepared inputs. Example:
 
 	```bash
-	python CLs/CLs_final/CalcUpperLimit_Example.py
+	python CLs/CLs_final/CalcUpperLimit_wSyst.py
 	```
 
 	Update `CLs/parameters.ini` (or the script arguments) to point to the prepared input files produced by step 2. The `CLs` scripts will read those inputs and produce the final sensitivity and limit plots/tables.
