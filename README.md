@@ -41,6 +41,10 @@ python -m pip install numpy pandas matplotlib scikit-learn jupyter notebook upro
 	Update `CLs/parameters.ini` (or the script arguments) to point to the prepared input files produced by step 2. The `CLs` scripts will read those inputs and produce the final sensitivity and limit plots/tables.
 
 
+**Data samples**
+- The samples used for development and testing are available here: https://drive.google.com/drive/folders/1FTyRupcFJqptV6i8D_OlXe7QxSHgji9K?usp=sharing
+- After downloading, place the files into the expected locations (for example `BDT/dataset/`) or update paths as described in **Reproducibility & Paths**.
+
 **Key files & notebooks**
 - BDT training and utilities: [BDT/train_BDT.py](BDT/train_BDT.py), [BDT/train_BDT_final_ref.py](BDT/train_BDT_final_ref.py), notebooks in [BDT](BDT).
 - CLs calculation examples: [CLs/CalcUpperLimit_wSyst.py](CLs/CalcUpperLimit_wSyst.py), [CLs/parameters.ini](CLs/parameters.ini).
