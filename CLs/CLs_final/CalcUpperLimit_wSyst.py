@@ -2,12 +2,14 @@ import math
 import random
 import numpy as np
 import matplotlib.pyplot as plt
-
+from pathlib import Path
 from scipy.stats import poisson
 from scipy.stats import norm
 from scipy.integrate import nquad 
 import configparser
 import ast
+
+from datetime import datetime
 
 import dunestyle.matplotlib as dunestyle
 
@@ -22,6 +24,18 @@ if not isExist:
    os.makedirs(path)
    #print("The new directory is created!")
 
+def create_run_output_dir(base: str = "plots") -> str:
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_dir = Path.cwd() / base / timestamp
+    run_dir.mkdir(parents=True, exist_ok=True)
+
+    print("\n========================================")
+    print(f" Saving outputs to:\n {run_dir}")
+    print("========================================\n")
+    return str(run_dir)
+
+
+path = create_run_output_dir()
 # Create a ConfigParser object
 config = configparser.ConfigParser()
 
@@ -53,7 +67,7 @@ flux_list = [634.1, 303.6, 117.7, 36.38, 468.3, 203.4, 72.48, 19.10, 28.12, 7.52
 #argon cross section / g_Z' ^ 4
 xsec_list = [9.057 * 1e-30, 1.063 * 1e-29, 1.220 * 1e-29, 1.278 * 1e-29, 4.978 * 1e-29, 5.609 * 1e-29, 5.965 * 1e-29, 6.152 * 1e-29, 1.270 * 1e-27, 1.377 * 1e-27, 1.437 * 1e-27, 1.470 * 1e-27]
 
-path_eff = '/home/leoperes/Desktop/UpperLimitCodeBDM_final/UpperLimitCodeBDM/Optimization/NuclearModelsOptSelectionApplication_final/generated/20260216_181339/' #Path to the folder with the optimal cuts for each nuclear model and BDM sample
+path_eff = '../../Optimization/NuclearModelsOptSelectionApplication_final/generated/20260216_181339/' #Path to the folder with the optimal cuts for each nuclear model and BDM sample
 #txt files with signal strength, expected background and signal efficiency for each nuclear configuration model
 infiles = [path_eff+'hA_BR/Eff_Bkg_index_00a.txt',  path_eff+'hN_BR/Eff_Bkg_index_00b.txt',  path_eff+'hA_LFG/Eff_Bkg_index_01a.txt',  path_eff+'hN_LFG/Eff_Bkg_index_01b.txt',  path_eff+'hA_ESF/Eff_Bkg_index_02a.txt',  path_eff+'hN_ESF/Eff_Bkg_index_02b.txt']
 #Sample labels
@@ -73,17 +87,17 @@ list_samples_latex = [r'$m_\chi = 5 $ GeV, $\gamma=1.1$',
                                            r'$m_\chi = 40$ GeV, $ \gamma=10$' ]  
 
 poi_m05_b1p1 = np.linspace(0.5e-6,4e-6,STEPS_PROBING_GZ4)
-poi_m10_b1p1 = np.linspace(0.8e-6,8e-6,STEPS_PROBING_GZ4)
+poi_m10_b1p1 = np.linspace(0.8e-6,7e-6,STEPS_PROBING_GZ4)
 poi_m20_b1p1 = np.linspace(1e-6,0.9e-5,STEPS_PROBING_GZ4)
-poi_m40_b1p1 = np.linspace(1.5e-6,1e-5,STEPS_PROBING_GZ4)
+poi_m40_b1p1 = np.linspace(1.5e-6,1.3e-5,STEPS_PROBING_GZ4)
 poi_m05_b1p5 = np.linspace(1e-7,1e-6,STEPS_PROBING_GZ4)
-poi_m10_b1p5 = np.linspace(1e-7,2e-6,STEPS_PROBING_GZ4)
+poi_m10_b1p5 = np.linspace(1e-7,1.5e-6,STEPS_PROBING_GZ4)
 poi_m20_b1p5 = np.linspace(1e-7,3e-6,STEPS_PROBING_GZ4)
 poi_m40_b1p5 = np.linspace(5e-7,6e-6,STEPS_PROBING_GZ4)
 poi_m05_b10 = np.linspace(7e-8,5e-7,STEPS_PROBING_GZ4)
 poi_m10_b10 = np.linspace(1e-7,8.5e-7,STEPS_PROBING_GZ4)
 poi_m20_b10 = np.linspace(2e-7,2e-6,STEPS_PROBING_GZ4)
-poi_m40_b10 = np.linspace(0.9e-6,5e-6,STEPS_PROBING_GZ4)
+poi_m40_b10 = np.linspace(0.9e-6,3.5e-6,STEPS_PROBING_GZ4)
 
 poi = [poi_m05_b1p1, poi_m10_b1p1, poi_m20_b1p1, poi_m40_b1p1, poi_m05_b1p5, poi_m10_b1p5, poi_m20_b1p5, poi_m40_b1p5, poi_m05_b10, poi_m10_b10, poi_m20_b10, poi_m40_b10]
 
@@ -162,7 +176,7 @@ for i, lab in enumerate(labelsamples):
 #==== third collumn firt entry overall signal efficiency second entry expected background number
 
 ##print(str(path))
-for i in range(0,12): #Each BDM sample gamma and mass value 
+for i in range(11,12): #Each BDM sample gamma and mass value 
     
     
 

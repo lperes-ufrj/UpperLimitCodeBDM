@@ -1,0 +1,42 @@
+ =========== SYSTEMATICS AND PARAMETERS INCLUEDED ============  
+BKG_FLUX_OVERALLSCALE_UC: [0.01  0.01  0.01  0.01  0.011 0.011 0.011 0.011 0.01  0.011 0.014 0.012]
+BKG_FLUX_SHAPE_UC: [0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009]
+BKG_FLUC_UC: 0.014212670403551895
+EFF_SYST_UC: 0.25
+NA_DUNE_UC: 0.01
+N_THROWS: 1200
+N_BINS: 30
+DECIMALS_PRECISION: 2
+ =========== CENTRAL LIMIT FOR GZ'^4 AND BANDS WITH 1 AND 2 SIGMAS ============  
+======== -2 Sigma Expeceted BG ========
+1.2212212212212211e-06
+======== -2 Sigma Expeceted BG ========
+1.2377377377377378e-06
+======== -2 Sigma Expeceted BG ========
+1.2597597597597598e-06
+======== -1 Sigma Expeceted BG ========
+1.4414414414414413e-06
+======== -1 Sigma Expeceted BG ========
+1.4469469469469467e-06
+======== -1 Sigma Expeceted BG ========
+1.4524524524524524e-06
+======== -1 Sigma Expeceted BG ========
+1.457957957957958e-06
+======== CENTRAL VALUE ========
+1.7497497497497494e-06
+======== CENTRAL VALUE ========
+1.755255255255255e-06
+======== CENTRAL VALUE ========
+1.7607607607607606e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.1296296296296294e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.135135135135135e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.542542542542542e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.5480480480480477e-06
