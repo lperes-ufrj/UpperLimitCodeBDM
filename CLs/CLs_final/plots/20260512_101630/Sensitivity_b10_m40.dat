@@ -1,0 +1,57 @@
+ =========== SYSTEMATICS AND PARAMETERS INCLUEDED ============  
+BKG_FLUX_OVERALLSCALE_UC: [0.01  0.01  0.01  0.01  0.011 0.011 0.011 0.011 0.01  0.011 0.014 0.012]
+BKG_FLUX_SHAPE_UC: [0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009]
+BKG_FLUC_UC: 0.015
+EFF_SYST_UC: 0.25
+NA_DUNE_UC: 0.01
+N_THROWS: 1200
+N_BINS: 30
+DECIMALS_PRECISION: 2
+RANDOM_SEED: 12345
+ =========== CENTRAL LIMIT FOR GZ'^4 AND BANDS WITH 1 AND 2 SIGMAS ============  
+======== -2 Sigma Expeceted BG ========
+1.2930930930930931e-06
+======== -2 Sigma Expeceted BG ========
+1.2972972972972972e-06
+======== -2 Sigma Expeceted BG ========
+1.2993993993993994e-06
+======== -2 Sigma Expeceted BG ========
+1.3015015015015015e-06
+======== -2 Sigma Expeceted BG ========
+1.3036036036036037e-06
+======== -2 Sigma Expeceted BG ========
+1.3057057057057058e-06
+======== -2 Sigma Expeceted BG ========
+1.3099099099099099e-06
+======== -1 Sigma Expeceted BG ========
+1.511711711711712e-06
+======== -1 Sigma Expeceted BG ========
+1.5138138138138138e-06
+======== -1 Sigma Expeceted BG ========
+1.515915915915916e-06
+======== -1 Sigma Expeceted BG ========
+1.5180180180180181e-06
+======== CENTRAL VALUE ========
+1.8207207207207208e-06
+======== CENTRAL VALUE ========
+1.8228228228228228e-06
+======== CENTRAL VALUE ========
+1.8249249249249251e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.215915915915916e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.218018018018018e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.22012012012012e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.6342342342342343e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.6363363363363366e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+2.6384384384384386e-06
