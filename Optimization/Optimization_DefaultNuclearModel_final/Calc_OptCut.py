@@ -12,7 +12,7 @@ Eff_Bkg_index_*.txt) stay as .txt (because they are human-readable tables).
 python3 Calc_OptCut.py \
   --base-path /home/leoperes/ \
   --sun-pos-file ../background_sun_pos.dat \
-  --weights-xml /home/leoperes/Desktop/UpperLimitCodeBDM_final/UpperLimitCodeBDM/BDT/dataset/weights/TMVAClassification_BDTAtmCCNC_202601261224.weights.xml \
+  --weights-xml /home/leoperes/Desktop/UpperLimitCodeBDMv4/UpperLimitCodeBDM/BDT/outputs/BDT_202605112035/dataset_202605112035/weights/TMVAClassification_202605112035_BDTAtmCCNC_202605112035.weights.xml \
   --seed 12345
 
 """
@@ -267,7 +267,7 @@ def open_samples(base_path: Path, subdir: str = "ntuples_grid_newVertex/00a_newV
     root_dir = base_path / subdir
 
     files = [
-        root_dir / "atm_hA_BR_4ana.root",
+        root_dir / "atm_all_Honda_hA_BR_solmax_NuFIT4p1_E40_cosZ20_1p5M_500k.root",
         root_dir / "bdm_m05_b1p1_00a.root",
         root_dir / "bdm_m10_b1p1_00a.root",
         root_dir / "bdm_m20_b1p1_00a.root",

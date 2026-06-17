@@ -1,0 +1,207 @@
+ =========== SYSTEMATICS AND PARAMETERS INCLUEDED ============  
+BKG_FLUX_OVERALLSCALE_UC: [0.01  0.01  0.01  0.01  0.011 0.011 0.011 0.011 0.01  0.011 0.014 0.012]
+BKG_FLUX_SHAPE_UC: [0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009 0.009]
+BKG_FLUC_UC: 0.01345362404707371
+EFF_SYST_UC: 0.25
+NA_DUNE_UC: 0.01
+N_THROWS: 1200
+N_BINS: 30
+DECIMALS_PRECISION: 2
+RANDOM_SEED: 12345
+EXPOSURE: 100 kt-year
+NA_dune: 1.5e+32
+livetime_dune: 315400000.0
+ =========== CENTRAL LIMIT FOR GZ'^4 AND BANDS WITH 1 AND 2 SIGMAS ============  
+======== -2 Sigma Expeceted BG ========
+2.244644644644645e-06
+======== -2 Sigma Expeceted BG ========
+2.2622622622622626e-06
+======== -2 Sigma Expeceted BG ========
+2.271071071071071e-06
+======== -2 Sigma Expeceted BG ========
+2.27987987987988e-06
+======== -2 Sigma Expeceted BG ========
+2.288688688688689e-06
+======== -2 Sigma Expeceted BG ========
+2.2974974974974978e-06
+======== -2 Sigma Expeceted BG ========
+2.3063063063063067e-06
+======== -2 Sigma Expeceted BG ========
+2.315115115115115e-06
+======== -2 Sigma Expeceted BG ========
+2.323923923923924e-06
+======== -2 Sigma Expeceted BG ========
+2.332732732732733e-06
+======== -2 Sigma Expeceted BG ========
+2.341541541541542e-06
+======== -2 Sigma Expeceted BG ========
+2.3503503503503507e-06
+======== -2 Sigma Expeceted BG ========
+2.359159159159159e-06
+======== -2 Sigma Expeceted BG ========
+2.367967967967968e-06
+======== -2 Sigma Expeceted BG ========
+2.376776776776777e-06
+======== -2 Sigma Expeceted BG ========
+2.385585585585586e-06
+======== -2 Sigma Expeceted BG ========
+2.3943943943943947e-06
+======== -2 Sigma Expeceted BG ========
+2.403203203203203e-06
+======== -2 Sigma Expeceted BG ========
+2.4120120120120125e-06
+======== -2 Sigma Expeceted BG ========
+2.420820820820821e-06
+======== -2 Sigma Expeceted BG ========
+2.4384384384384388e-06
+======== -2 Sigma Expeceted BG ========
+2.4472472472472472e-06
+======== -1 Sigma Expeceted BG ========
+2.711511511511512e-06
+======== -1 Sigma Expeceted BG ========
+2.7203203203203204e-06
+======== -1 Sigma Expeceted BG ========
+2.7291291291291293e-06
+======== -1 Sigma Expeceted BG ========
+2.737937937937938e-06
+======== -1 Sigma Expeceted BG ========
+2.746746746746747e-06
+======== -1 Sigma Expeceted BG ========
+2.755555555555556e-06
+======== -1 Sigma Expeceted BG ========
+2.7643643643643644e-06
+======== -1 Sigma Expeceted BG ========
+2.7731731731731733e-06
+======== -1 Sigma Expeceted BG ========
+2.781981981981982e-06
+======== -1 Sigma Expeceted BG ========
+2.790790790790791e-06
+======== -1 Sigma Expeceted BG ========
+2.7995995995996e-06
+======== -1 Sigma Expeceted BG ========
+2.8084084084084085e-06
+======== -1 Sigma Expeceted BG ========
+2.8172172172172174e-06
+======== -1 Sigma Expeceted BG ========
+2.8260260260260262e-06
+======== -1 Sigma Expeceted BG ========
+2.834834834834835e-06
+======== -1 Sigma Expeceted BG ========
+2.843643643643644e-06
+======== -1 Sigma Expeceted BG ========
+2.8524524524524525e-06
+======== -1 Sigma Expeceted BG ========
+2.8612612612612614e-06
+======== CENTRAL VALUE ========
+3.3897897897897903e-06
+======== CENTRAL VALUE ========
+3.3985985985985988e-06
+======== CENTRAL VALUE ========
+3.4074074074074077e-06
+======== CENTRAL VALUE ========
+3.4162162162162166e-06
+======== CENTRAL VALUE ========
+3.4250250250250254e-06
+======== CENTRAL VALUE ========
+3.4338338338338343e-06
+======== CENTRAL VALUE ========
+3.442642642642643e-06
+======== CENTRAL VALUE ========
+3.4514514514514517e-06
+======== CENTRAL VALUE ========
+3.4602602602602606e-06
+======== CENTRAL VALUE ========
+3.4690690690690695e-06
+======== CENTRAL VALUE ========
+3.4778778778778784e-06
+======== CENTRAL VALUE ========
+3.486686686686687e-06
+======== CENTRAL VALUE ========
+3.4954954954954957e-06
+======== CENTRAL VALUE ========
+3.5043043043043046e-06
+======== CENTRAL VALUE ========
+3.5131131131131135e-06
+======== CENTRAL VALUE ========
+3.5219219219219224e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.226626626626627e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.235435435435436e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.244244244244245e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.253053053053053e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.261861861861862e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.2706706706706715e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.27947947947948e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.2882882882882885e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.297097097097098e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.305905905905906e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.314714714714715e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.323523523523524e-06
+======== +1 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+4.332332332332333e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.054654654654655e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.063463463463464e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.072272272272273e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.081081081081082e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.0898898898898905e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.098698698698699e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.107507507507508e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.116316316316317e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.125125125125126e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.1339339339339346e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.177977977977979e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.186786786786787e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.204404404404405e-06
+======== +2 Sigma Expeceted BG ========
+Number of S+B pseudo experiments with NLLR = -inf 0
+5.23963963963964e-06

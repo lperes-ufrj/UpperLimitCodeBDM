@@ -26,8 +26,8 @@ Output:
     python3 ApplyNominalCuts_ToOtherNuclearModels.py \
   --base-path /home/leoperes \
   --sun-pos-file ../background_sun_pos.dat \
-  --weights-xml /home/leoperes/Desktop/UpperLimitCodeBDM_final/UpperLimitCodeBDM/BDT/dataset/weights/TMVAClassification_BDTAtmCCNC_202601261224.weights.xml \
-  --nominal-eff-bkg /home/leoperes/Desktop/UpperLimitCodeBDM_final/UpperLimitCodeBDM/Optimization/Optimization_DefaultNuclearModel_final/generated/20260216_172956/Eff_Bkg_index_00a.txt \
+  --weights-xml /home/leoperes/Desktop/UpperLimitCodeBDMv4/UpperLimitCodeBDM/BDT/outputs/BDT_202605112035/dataset_202605112035/weights/TMVAClassification_202605112035_BDTAtmCCNC_202605112035.weights.xml \
+  --nominal-eff-bkg /home/leoperes/Desktop/UpperLimitCodeBDMv4/UpperLimitCodeBDM/Optimization/Optimization_DefaultNuclearModel_final/generated/20260511_204444/Eff_Bkg_index_00a.txt \
   --seed 12345
 
 
@@ -71,7 +71,7 @@ MISSING_SAMPLE_BY_CODE = {
     "01a": {"m20_b10"},
 }
 
-ATM_FILE_FIXED = "atm_hA_BR_4ana.root"
+ATM_FILE_FIXED = "atm_all_Honda_hA_BR_solmax_NuFIT4p1_E40_cosZ20_1p5M_500k.root"
 EXPECTED_BKG_10KTY = 2495.98
 
 
@@ -457,7 +457,10 @@ def main() -> None:
         # Compute once (used only for index0<4; okay to compute anyway)
         bdt_atm_all = get_bdt_response_all(atm_reco, args.weights_xml)
 
-        background_scale = 4.0 * 10.0 * ratio_reco_atm * EXPECTED_BKG_10KTY / float(n_sim_atm)
+        # Match Calc_OptCut.py normalization exactly. The selected atmospheric
+        # count is already taken from reconstructed events, so applying
+        # ratio_reco_atm here would double-count the reconstruction fraction.
+        background_scale = 4.0 * 10.0 * EXPECTED_BKG_10KTY / float(n_sim_atm)
 
         # ---------- Output files ----------
         mode = "a" if args.append else "w"

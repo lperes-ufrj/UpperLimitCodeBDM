@@ -1,3 +1,4 @@
+import argparse
 import math
 import random
 import numpy as np
@@ -15,6 +16,18 @@ import dunestyle.matplotlib as dunestyle
 
 #python program to check if a directory exists
 import os
+
+parser = argparse.ArgumentParser(description="Calculate CLs upper limits with systematics.")
+parser.add_argument(
+    "--seed",
+    default=12345,
+    type=int,
+    help="Random seed for reproducible systematic throws and pseudo-experiments.",
+)
+args = parser.parse_args()
+
+random.seed(args.seed)
+rng = np.random.default_rng(args.seed)
 
 path = 'plots/'
 # Check whether the specified path exists or not
@@ -67,7 +80,7 @@ flux_list = [634.1, 303.6, 117.7, 36.38, 468.3, 203.4, 72.48, 19.10, 28.12, 7.52
 #argon cross section / g_Z' ^ 4
 xsec_list = [9.057 * 1e-30, 1.063 * 1e-29, 1.220 * 1e-29, 1.278 * 1e-29, 4.978 * 1e-29, 5.609 * 1e-29, 5.965 * 1e-29, 6.152 * 1e-29, 1.270 * 1e-27, 1.377 * 1e-27, 1.437 * 1e-27, 1.470 * 1e-27]
 
-path_eff = '../../Optimization/NuclearModelsOptSelectionApplication_final/generated/20260216_181339/' #Path to the folder with the optimal cuts for each nuclear model and BDM sample
+path_eff = '../../Optimization/NuclearModelsOptSelectionApplication_final/generated/20260512_100838/' #Path to the folder with the optimal cuts for each nuclear model and BDM sample
 #txt files with signal strength, expected background and signal efficiency for each nuclear configuration model
 infiles = [path_eff+'hA_BR/Eff_Bkg_index_00a.txt',  path_eff+'hN_BR/Eff_Bkg_index_00b.txt',  path_eff+'hA_LFG/Eff_Bkg_index_01a.txt',  path_eff+'hN_LFG/Eff_Bkg_index_01b.txt',  path_eff+'hA_ESF/Eff_Bkg_index_02a.txt',  path_eff+'hN_ESF/Eff_Bkg_index_02b.txt']
 #Sample labels
@@ -87,17 +100,17 @@ list_samples_latex = [r'$m_\chi = 5 $ GeV, $\gamma=1.1$',
                                            r'$m_\chi = 40$ GeV, $ \gamma=10$' ]  
 
 poi_m05_b1p1 = np.linspace(0.5e-6,4e-6,STEPS_PROBING_GZ4)
-poi_m10_b1p1 = np.linspace(0.8e-6,7e-6,STEPS_PROBING_GZ4)
+poi_m10_b1p1 = np.linspace(0.8e-6,6e-6,STEPS_PROBING_GZ4)
 poi_m20_b1p1 = np.linspace(1e-6,0.9e-5,STEPS_PROBING_GZ4)
 poi_m40_b1p1 = np.linspace(1.5e-6,1.3e-5,STEPS_PROBING_GZ4)
-poi_m05_b1p5 = np.linspace(1e-7,1e-6,STEPS_PROBING_GZ4)
-poi_m10_b1p5 = np.linspace(1e-7,1.5e-6,STEPS_PROBING_GZ4)
-poi_m20_b1p5 = np.linspace(1e-7,3e-6,STEPS_PROBING_GZ4)
-poi_m40_b1p5 = np.linspace(5e-7,6e-6,STEPS_PROBING_GZ4)
+poi_m05_b1p5 = np.linspace(1e-7,0.8e-6,STEPS_PROBING_GZ4)
+poi_m10_b1p5 = np.linspace(1e-7,1e-6,STEPS_PROBING_GZ4)
+poi_m20_b1p5 = np.linspace(1e-7,2e-6,STEPS_PROBING_GZ4)
+poi_m40_b1p5 = np.linspace(5e-7,4e-6,STEPS_PROBING_GZ4)
 poi_m05_b10 = np.linspace(7e-8,5e-7,STEPS_PROBING_GZ4)
 poi_m10_b10 = np.linspace(1e-7,8.5e-7,STEPS_PROBING_GZ4)
-poi_m20_b10 = np.linspace(2e-7,2e-6,STEPS_PROBING_GZ4)
-poi_m40_b10 = np.linspace(0.9e-6,3.5e-6,STEPS_PROBING_GZ4)
+poi_m20_b10 = np.linspace(2e-7,1.5e-6,STEPS_PROBING_GZ4)
+poi_m40_b10 = np.linspace(0.9e-6,3e-6,STEPS_PROBING_GZ4)
 
 poi = [poi_m05_b1p1, poi_m10_b1p1, poi_m20_b1p1, poi_m40_b1p1, poi_m05_b1p5, poi_m10_b1p5, poi_m20_b1p5, poi_m40_b1p5, poi_m05_b10, poi_m10_b10, poi_m20_b10, poi_m40_b10]
 
@@ -176,7 +189,7 @@ for i, lab in enumerate(labelsamples):
 #==== third collumn firt entry overall signal efficiency second entry expected background number
 
 ##print(str(path))
-for i in range(11,12): #Each BDM sample gamma and mass value 
+for i in range(4,12): #Each BDM sample gamma and mass value 
     
     
 
@@ -190,6 +203,7 @@ for i in range(11,12): #Each BDM sample gamma and mass value
     Sensitivity_Info.write('N_THROWS: '+str(N_THROWS)+'\n')
     Sensitivity_Info.write('N_BINS: '+str(N_BINS)+'\n')
     Sensitivity_Info.write('DECIMALS_PRECISION: '+str(DECIMALS_PRECISION)+'\n')
+    Sensitivity_Info.write('RANDOM_SEED: '+str(args.seed)+'\n')
     Sensitivity_Info.write(" =========== CENTRAL LIMIT FOR GZ'^4 AND BANDS WITH 1 AND 2 SIGMAS ============  \n")
 
     Debug_Info = open(path+'/Debug_Info_'+labelsamples[i]+'.dat', "a")
@@ -218,10 +232,10 @@ for i in range(11,12): #Each BDM sample gamma and mass value
     sigma_b = np.sqrt(BKG_FLUX_OVERALLSCALE_UC[i]**2 +
                   BKG_FLUX_SHAPE_UC[i]**2) * b_cv
    
-    eff_syst = np.random.normal(eff_cv,EFF_SYST_UC*eff_cv,N_THROWS) # Throw the overall efficiency inside a systematic un.
-    NA_dune_syst = np.random.normal(NA_dune,NA_dune*NA_DUNE_UC, N_THROWS) #Throw the number of targets (Fiducial Mass) inside a systematic un.
+    eff_syst = rng.normal(eff_cv,EFF_SYST_UC*eff_cv,N_THROWS) # Throw the overall efficiency inside a systematic un.
+    NA_dune_syst = rng.normal(NA_dune,NA_dune*NA_DUNE_UC, N_THROWS) #Throw the number of targets (Fiducial Mass) inside a systematic un.
     
-    B_syst = np.random.normal(b_cv, sigma_b, N_THROWS)
+    B_syst = rng.normal(b_cv, sigma_b, N_THROWS)
     B_syst = np.clip(B_syst, 0, None)
     B_syst = (NA_dune_syst/NA_dune) * B_syst
 
@@ -233,9 +247,9 @@ for i in range(11,12): #Each BDM sample gamma and mass value
         # Define the possible values
         nm_indices = [0, 1, 3, 4, 5]
         # Generate the random array
-        nm_shift = np.random.choice(nm_indices, size=N_THROWS)
+        nm_shift = rng.choice(nm_indices, size=N_THROWS)
     else:
-        nm_shift = np.random.randint(0,6,size=N_THROWS) #Throw nuclear model
+        nm_shift = rng.integers(0,6,size=N_THROWS) #Throw nuclear model
 
 
     for nuclear_model in range(N_THROWS):
@@ -279,12 +293,12 @@ for i in range(11,12): #Each BDM sample gamma and mass value
         s_cv = NA_dune*xsec_list[i]*livetime_dune*flux_list[i]*eff_cv*(gz4**2) 
         ##print((gz4**2))
         ##print(s_cv)
-        H_0 = np.random.poisson(B_syst[0],N_THROWS)
-        H_1 = np.random.poisson(B_syst[0]+S_syst[0],N_THROWS)
+        H_0 = rng.poisson(B_syst[0],N_THROWS)
+        H_1 = rng.poisson(B_syst[0]+S_syst[0],N_THROWS)
         for index, bi in enumerate(B_syst[1:]):
-            h0_i = np.random.poisson(bi,N_THROWS)
+            h0_i = rng.poisson(bi,N_THROWS)
             H_0 = np.concatenate((H_0,h0_i))
-            h1_i = np.random.poisson(bi+S_syst[index+1],N_THROWS)
+            h1_i = rng.poisson(bi+S_syst[index+1],N_THROWS)
             H_1 = np.concatenate((H_1,h1_i))
         #Q_0 = poisson.pmf(H_0, s_cv+b_cv)/poisson.pmf(H_0, b_cv)
         #Q_1 = poisson.pmf(H_1, s_cv+b_cv)/poisson.pmf(H_1, b_cv)
