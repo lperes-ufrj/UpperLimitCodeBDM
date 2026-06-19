@@ -189,7 +189,7 @@ for i, lab in enumerate(labelsamples):
 #==== third collumn firt entry overall signal efficiency second entry expected background number
 
 ##print(str(path))
-for i in range(4,12): #Each BDM sample gamma and mass value 
+for i in range(0,12): #Each BDM sample gamma and mass value 
     
     
 
@@ -236,7 +236,7 @@ for i in range(4,12): #Each BDM sample gamma and mass value
     NA_dune_syst = rng.normal(NA_dune,NA_dune*NA_DUNE_UC, N_THROWS) #Throw the number of targets (Fiducial Mass) inside a systematic un.
     
     B_syst = rng.normal(b_cv, sigma_b, N_THROWS)
-    B_syst = np.clip(B_syst, 0, None)
+    #B_syst = np.clip(B_syst, 0, None)
     B_syst = (NA_dune_syst/NA_dune) * B_syst
 
 
@@ -260,7 +260,7 @@ for i in range(4,12): #Each BDM sample gamma and mass value
 
 
     eff_syst = shifts_b_eff[:,0]*eff_syst
-    #B_syst = np.round(B_syst[eff_syst>0])
+    B_syst = np.round(B_syst[eff_syst>0])
     NA_dune_syst = NA_dune_syst[eff_syst>0] # Physical cut, only positive background events.
     eff_syst = eff_syst[eff_syst>0] 
 
